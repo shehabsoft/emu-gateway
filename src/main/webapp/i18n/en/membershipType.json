@@ -1,0 +1,25 @@
+{
+  "membershipApp": {
+    "membershipType": {
+      "home": {
+        "title": "Membership Types",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Membership Type",
+        "createOrEditLabel": "Create or edit a Membership Type",
+        "notFound": "No Membership Types found"
+      },
+      "created": "A new Membership Type is created with identifier {{ param }}",
+      "updated": "A Membership Type is updated with identifier {{ param }}",
+      "deleted": "A Membership Type is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Membership Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Membership Type"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

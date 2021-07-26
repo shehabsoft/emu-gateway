@@ -1,0 +1,25 @@
+{
+  "membershipApp": {
+    "membershipCategory": {
+      "home": {
+        "title": "Membership Categories",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Membership Category",
+        "createOrEditLabel": "Create or edit a Membership Category",
+        "notFound": "No Membership Categories found"
+      },
+      "created": "A new Membership Category is created with identifier {{ param }}",
+      "updated": "A Membership Category is updated with identifier {{ param }}",
+      "deleted": "A Membership Category is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Membership Category {{ id }}?"
+      },
+      "detail": {
+        "title": "Membership Category"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

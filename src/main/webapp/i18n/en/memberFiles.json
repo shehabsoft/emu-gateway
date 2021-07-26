@@ -1,0 +1,27 @@
+{
+  "membershipApp": {
+    "memberFiles": {
+      "home": {
+        "title": "Member Files",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Member Files",
+        "createOrEditLabel": "Create or edit a Member Files",
+        "notFound": "No Member Files found"
+      },
+      "created": "A new Member Files is created with identifier {{ param }}",
+      "updated": "A Member Files is updated with identifier {{ param }}",
+      "deleted": "A Member Files is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Member Files {{ id }}?"
+      },
+      "detail": {
+        "title": "Member Files"
+      },
+      "id": "ID",
+      "fileName": "File Name",
+      "fileType": "File Type",
+      "fileContent": "File Content",
+      "member": "Member"
+    }
+  }
+}

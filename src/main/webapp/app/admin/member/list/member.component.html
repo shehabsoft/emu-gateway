@@ -1,0 +1,153 @@
+<div>
+  <h2 id="page-heading" data-cy="MemberHeading">
+    <span jhiTranslate="membershipApp.member.home.title">Members</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="membershipApp.member.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-member"
+        [routerLink]="['/admin/member/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="membershipApp.member.home.createLabel"> Create a new Member </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="members?.length === 0">
+    <span jhiTranslate="membershipApp.member.home.notFound">No members found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="members && members.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="firstName">
+            <span jhiTranslate="membershipApp.member.firstName">First Name</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastName">
+            <span jhiTranslate="membershipApp.member.lastName">Last Name</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="civilId">
+            <span jhiTranslate="membershipApp.member.civilId">Civil Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="birthDate">
+            <span jhiTranslate="membershipApp.member.birthDate">Birth Date</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="email">
+            <span jhiTranslate="membershipApp.member.email">Email</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="phone">
+            <span jhiTranslate="membershipApp.member.phone">Phone</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="address1">
+            <span jhiTranslate="membershipApp.member.address1">Address 1</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="address2">
+            <span jhiTranslate="membershipApp.member.address2">Address 2</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="city"><span jhiTranslate="membershipApp.member.city">City</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="country">
+            <span jhiTranslate="membershipApp.member.country">Country</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="salary">
+            <span jhiTranslate="membershipApp.member.salary">Salary</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="gender">
+            <span jhiTranslate="membershipApp.member.gender">Gender</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="membershipStatus.name">
+            <span jhiTranslate="membershipApp.member.membershipStatus">Membership Status</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="membershipCategory.name">
+            <span jhiTranslate="membershipApp.member.membershipCategory">Membership Category</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="membershipType.name">
+            <span jhiTranslate="membershipApp.member.membershipType">Membership Type</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="membershipLevel.name">
+            <span jhiTranslate="membershipApp.member.membershipLevel">Membership Level</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let member of members; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/member', member.id, 'view']">{{ member.id }}</a>
+          </td>
+          <td>{{ member.firstName }}</td>
+          <td>{{ member.lastName }}</td>
+          <td>{{ member.civilId }}</td>
+
+          <td>{{ member.email }}</td>
+          <td>{{ member.phone }}</td>
+          <td>{{ member.address1 }}</td>
+          <td>{{ member.address2 }}</td>
+          <td>{{ member.city }}</td>
+          <td>{{ member.country }}</td>
+          <td>{{ member.salary }}</td>
+          <td jhiTranslate="{{ 'membershipApp.Gender.' + member.gender }}">{{ member.gender }}</td>
+          <td>
+            <div *ngIf="member.membershipStatus">
+              <a [routerLink]="['/admin/membership-status', member.membershipStatus?.id, 'view']">{{ member.membershipStatus?.name }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="member.membershipCategory">
+              <a [routerLink]="['/admin/membership-category', member.membershipCategory?.id, 'view']">{{ member.membershipCategory?.name }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="member.membershipType">
+              <a [routerLink]="['/admin/membership-type', member.membershipType?.id, 'view']">{{ member.membershipType?.name }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="member.membershipLevel">
+              <a [routerLink]="['/admin/membership-level', member.membershipLevel?.id, 'view']">{{ member.membershipLevel?.name }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/admin/member', member.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+
+
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="members && members.length > 0">
+
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+{
+  "membershipApp": {
+    "membershipStatus": {
+      "home": {
+        "title": "Membership Statuses",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Membership Status",
+        "createOrEditLabel": "Create or edit a Membership Status",
+        "notFound": "No Membership Statuses found"
+      },
+      "created": "A new Membership Status is created with identifier {{ param }}",
+      "updated": "A Membership Status is updated with identifier {{ param }}",
+      "deleted": "A Membership Status is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Membership Status {{ id }}?"
+      },
+      "detail": {
+        "title": "Membership Status"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

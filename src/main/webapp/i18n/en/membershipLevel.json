@@ -1,0 +1,25 @@
+{
+  "membershipApp": {
+    "membershipLevel": {
+      "home": {
+        "title": "Membership Levels",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Membership Level",
+        "createOrEditLabel": "Create or edit a Membership Level",
+        "notFound": "No Membership Levels found"
+      },
+      "created": "A new Membership Level is created with identifier {{ param }}",
+      "updated": "A Membership Level is updated with identifier {{ param }}",
+      "deleted": "A Membership Level is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Membership Level {{ id }}?"
+      },
+      "detail": {
+        "title": "Membership Level"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

@@ -1,0 +1,98 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="member">
+      <h2 data-cy="memberDetailsHeading"><span jhiTranslate="membershipApp.member.detail.title">Member</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ member.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="membershipApp.member.firstName">First Name</span></dt>
+        <dd>
+          <span>{{ member.firstName }}</span>
+        </dd>
+        <dt><span jhiTranslate="membershipApp.member.lastName">Last Name</span></dt>
+        <dd>
+          <span>{{ member.lastName }}</span>
+        </dd>
+        <dt><span jhiTranslate="membershipApp.member.civilId">Civil Id</span></dt>
+        <dd>
+          <span>{{ member.civilId }}</span>
+        </dd>
+        <dt><span jhiTranslate="membershipApp.member.birthDate">Birth Date</span></dt>
+
+        <dt><span jhiTranslate="membershipApp.member.email">Email</span></dt>
+        <dd>
+          <span>{{ member.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="membershipApp.member.phone">Phone</span></dt>
+        <dd>
+          <span>{{ member.phone }}</span>
+        </dd>
+        <dt><span jhiTranslate="membershipApp.member.address1">Address 1</span></dt>
+        <dd>
+          <span>{{ member.address1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="membershipApp.member.address2">Address 2</span></dt>
+        <dd>
+          <span>{{ member.address2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="membershipApp.member.city">City</span></dt>
+        <dd>
+          <span>{{ member.city }}</span>
+        </dd>
+        <dt><span jhiTranslate="membershipApp.member.country">Country</span></dt>
+        <dd>
+          <span>{{ member.country }}</span>
+        </dd>
+        <dt><span jhiTranslate="membershipApp.member.salary">Salary</span></dt>
+        <dd>
+          <span>{{ member.salary }}</span>
+        </dd>
+        <dt><span jhiTranslate="membershipApp.member.gender">Gender</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'membershipApp.Gender.' + member.gender }}">{{ member.gender }}</span>
+        </dd>
+        <dt><span jhiTranslate="membershipApp.member.membershipStatus">Membership Status</span></dt>
+        <dd>
+          <div *ngIf="member.membershipStatus">
+            <a [routerLink]="['/admin/membership-status', member.membershipStatus?.id, 'view']">{{ member.membershipStatus?.name }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="membershipApp.member.membershipCategory">Membership Category</span></dt>
+        <dd>
+          <div *ngIf="member.membershipCategory">
+            <a [routerLink]="['/admin/membership-category', member.membershipCategory?.id, 'view']">{{ member.membershipCategory?.name }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="membershipApp.member.membershipType">Membership Type</span></dt>
+        <dd>
+          <div *ngIf="member.membershipType">
+            <a [routerLink]="['/admin/membership-type', member.membershipType?.id, 'view']">{{ member.membershipType?.name }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="membershipApp.member.membershipLevel">Membership Level</span></dt>
+        <dd>
+          <div *ngIf="member.membershipLevel">
+            <a [routerLink]="['/admin/membership-level', member.membershipLevel?.id, 'view']">{{ member.membershipLevel?.name }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/admin/member', member.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

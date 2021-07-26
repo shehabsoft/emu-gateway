@@ -34,6 +34,31 @@ import { RouterModule } from '@angular/router';
         path: 'metrics',
         loadChildren: () => import('./metrics/metrics.module').then(m => m.MetricsModule),
       },
+      {
+        path: 'member',
+        data: { pageTitle: 'membershipApp.member.home.title' },
+        loadChildren: () => import('./member/member.module').then(m => m.MemberModule),
+      },
+      {
+        path: 'membership-status',
+        data: { pageTitle: 'membershipApp.membershipStatus.home.title' },
+        loadChildren: () => import('./membership-status/membership-status.module').then(m => m.MembershipStatusModule),
+      },
+      {
+        path: 'membership-category',
+        data: { pageTitle: 'membershipApp.membershipCategory.home.title' },
+        loadChildren: () => import('./membership-category/membership-category.module').then(m => m.MembershipCategoryModule),
+      },
+      {
+        path: 'membership-type',
+        data: { pageTitle: 'membershipApp.membershipType.home.title' },
+        loadChildren: () => import('./membership-type/membership-type.module').then(m => m.MembershipTypeModule),
+      },
+      {
+        path: 'membership-level',
+        data: { pageTitle: 'membershipApp.membershipLevel.home.title' },
+        loadChildren: () => import('./membership-level/membership-level.module').then(m => m.MembershipLevelModule),
+      },
       /* jhipster-needle-add-admin-route - JHipster will add admin routes here */
     ]),
   ],
